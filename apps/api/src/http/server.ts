@@ -17,6 +17,7 @@ import {
   authenticateWithPassword,
   createAccount,
   createOrganization,
+  getMembership,
   getProfile,
   requestPasswordRecover,
   resetPassword,
@@ -66,6 +67,7 @@ app.register(resetPassword)
 app.register(authenticateWithGithub)
 
 app.register(createOrganization)
+app.register(getMembership)
 
 app.listen({ port: env.SERVER_PORT }).then(() => {
   console.log('HTTP server running!')
