@@ -12,12 +12,15 @@ import {
 } from 'fastify-type-provider-zod'
 
 import { errorHandler } from '@/http/error-handler'
-import { authenticateWithGithub } from '@/http/routes/auth/authenticate-with-github'
-import { authenticateWithPassword } from '@/http/routes/auth/authenticate-with-password'
-import { createAccount } from '@/http/routes/auth/create-account'
-import { getProfile } from '@/http/routes/auth/get-profile'
-import { requestPasswordRecover } from '@/http/routes/auth/request-password-recover'
-import { resetPassword } from '@/http/routes/auth/reset-password'
+import {
+  authenticateWithGithub,
+  authenticateWithPassword,
+  createAccount,
+  createOrganization,
+  getProfile,
+  requestPasswordRecover,
+  resetPassword,
+} from '@/http/routes'
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 
@@ -61,6 +64,8 @@ app.register(getProfile)
 app.register(requestPasswordRecover)
 app.register(resetPassword)
 app.register(authenticateWithGithub)
+
+app.register(createOrganization)
 
 app.listen({ port: env.SERVER_PORT }).then(() => {
   console.log('HTTP server running!')
