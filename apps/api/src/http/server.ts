@@ -18,6 +18,8 @@ import {
   createAccount,
   createOrganization,
   getMembership,
+  getOrganization,
+  getOrganizations,
   getProfile,
   requestPasswordRecover,
   resetPassword,
@@ -68,6 +70,8 @@ app.register(authenticateWithGithub)
 
 app.register(createOrganization)
 app.register(getMembership)
+app.register(getOrganization)
+app.register(getOrganizations)
 
 app.listen({ port: env.SERVER_PORT }).then(() => {
   console.log('HTTP server running!')
