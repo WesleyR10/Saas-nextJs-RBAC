@@ -17,8 +17,5 @@
     "apps/*",
     "packages/*",
     "config/*"
-  ],
-  "dependencies": {
-    "fastify-plugin": "^4.5.1"
-  }
+  ]
 }
