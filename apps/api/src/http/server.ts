@@ -13,6 +13,7 @@ import {
 
 import { errorHandler } from '@/http/error-handler'
 import {
+  acceptInvite,
   authenticateWithGithub,
   authenticateWithPassword,
   createAccount,
@@ -103,6 +104,7 @@ app.register(removeMember)
 app.register(createInvite)
 app.register(getInvite)
 app.register(getInvites)
+app.register(acceptInvite)
 
 app.listen({ port: env.SERVER_PORT }).then(() => {
   console.log('HTTP server running!')
