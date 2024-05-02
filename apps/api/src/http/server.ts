@@ -23,6 +23,7 @@ import {
   getOrganization,
   getOrganizations,
   getProfile,
+  getProject,
   requestPasswordRecover,
   resetPassword,
   shutdownOrganization,
@@ -83,6 +84,7 @@ app.register(transferOrganization)
 
 app.register(createProject)
 app.register(deleteProject)
+app.register(getProject)
 
 app.listen({ port: env.SERVER_PORT }).then(() => {
   console.log('HTTP server running!')
