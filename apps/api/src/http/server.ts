@@ -30,6 +30,7 @@ import {
   resetPassword,
   shutdownOrganization,
   transferOrganization,
+  updateMember,
   updateOrganization,
   updateProject,
 } from '@/http/routes'
@@ -92,6 +93,7 @@ app.register(getProjects)
 app.register(updateProject)
 
 app.register(getMembers)
+app.register(updateMember)
 
 app.listen({ port: env.SERVER_PORT }).then(() => {
   console.log('HTTP server running!')
