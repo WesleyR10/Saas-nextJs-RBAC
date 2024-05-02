@@ -24,6 +24,7 @@ import {
   requestPasswordRecover,
   resetPassword,
   shutdownOrganization,
+  transferOrganization,
   updateOrganization,
 } from '@/http/routes'
 
@@ -76,6 +77,7 @@ app.register(getOrganization)
 app.register(getOrganizations)
 app.register(updateOrganization)
 app.register(shutdownOrganization)
+app.register(transferOrganization)
 
 app.listen({ port: env.SERVER_PORT }).then(() => {
   console.log('HTTP server running!')
