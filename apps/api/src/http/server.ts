@@ -19,6 +19,7 @@ import {
   createOrganization,
   createProject,
   deleteProject,
+  getMembers,
   getMembership,
   getOrganization,
   getOrganizations,
@@ -89,6 +90,8 @@ app.register(deleteProject)
 app.register(getProject)
 app.register(getProjects)
 app.register(updateProject)
+
+app.register(getMembers)
 
 app.listen({ port: env.SERVER_PORT }).then(() => {
   console.log('HTTP server running!')
