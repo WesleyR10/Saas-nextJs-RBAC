@@ -5,8 +5,6 @@ import { hash } from 'bcryptjs'
 const prisma = new PrismaClient()
 
 async function seed() {
-  await prisma.project.deleteMany() // Ate não inserir Cascade
-  await prisma.member.deleteMany() // Ate não inserir Cascade
   await prisma.organization.deleteMany()
   await prisma.user.deleteMany()
 
