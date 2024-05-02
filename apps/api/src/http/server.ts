@@ -26,6 +26,7 @@ import {
   getMembers,
   getMembership,
   getOrganization,
+  getOrganizationBilling,
   getOrganizations,
   getPendingInvites,
   getProfile,
@@ -111,6 +112,8 @@ app.register(acceptInvite)
 app.register(rejectInvite)
 app.register(revokeInvite)
 app.register(getPendingInvites)
+
+app.register(getOrganizationBilling)
 
 app.listen({ port: env.SERVER_PORT }).then(() => {
   console.log('HTTP server running!')
