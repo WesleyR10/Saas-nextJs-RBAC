@@ -23,6 +23,7 @@ import {
   getProfile,
   requestPasswordRecover,
   resetPassword,
+  shutdownOrganization,
   updateOrganization,
 } from '@/http/routes'
 
@@ -74,6 +75,7 @@ app.register(getMembership)
 app.register(getOrganization)
 app.register(getOrganizations)
 app.register(updateOrganization)
+app.register(shutdownOrganization)
 
 app.listen({ port: env.SERVER_PORT }).then(() => {
   console.log('HTTP server running!')
