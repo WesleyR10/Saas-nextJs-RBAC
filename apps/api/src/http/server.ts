@@ -16,6 +16,7 @@ import {
   authenticateWithGithub,
   authenticateWithPassword,
   createAccount,
+  createInvite,
   createOrganization,
   createProject,
   deleteProject,
@@ -96,6 +97,8 @@ app.register(updateProject)
 app.register(getMembers)
 app.register(updateMember)
 app.register(removeMember)
+
+app.register(createInvite)
 
 app.listen({ port: env.SERVER_PORT }).then(() => {
   console.log('HTTP server running!')
