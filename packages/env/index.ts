@@ -1,8 +1,6 @@
 import { createEnv } from '@t3-oss/env-nextjs'
 import { z } from 'zod'
 
-console.log('Environment variables:', process.env.DATABASE_URL)
-
 export const env = createEnv({
   server: {
     PORT: z.coerce.number().default(3333),
@@ -19,7 +17,7 @@ export const env = createEnv({
     NEXT_PUBLIC_API_URL: z.string().url(),
   },
   runtimeEnv: {
-    PORT: process.env.PORT,
+    PORT: process.env.SERVER_PORT,
     DATABASE_URL: process.env.DATABASE_URL,
     JWT_SECRET: process.env.JWT_SECRET,
     GITHUB_OAUTH_CLIENT_ID: process.env.GITHUB_OAUTH_CLIENT_ID,

@@ -6,6 +6,16 @@ import { z } from 'zod'
 import { auth } from '@/http/middlewares/auth'
 import { prisma } from '@/lib/prisma'
 
+interface Organization {
+  id: string
+  name: string
+  slug: string
+  avatarUrl: string | null
+  members: {
+    role: string
+  }[]
+}
+
 export async function getOrganizations(app: FastifyInstance) {
   app
     .withTypeProvider<ZodTypeProvider>()
@@ -60,7 +70,7 @@ export async function getOrganizations(app: FastifyInstance) {
         })
 
         const organizationsWithUserRole = organizations.map(
-          ({ members, ...org }) => {
+          ({ members, ...org }: Organization) => {
             return {
               ...org,
               role: members[0].role,

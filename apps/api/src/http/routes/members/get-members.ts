@@ -8,6 +8,17 @@ import { UnauthorizedError } from '@/http/routes/_errors/unauthorized-error'
 import { prisma } from '@/lib/prisma'
 import { getUserPermissions } from '@/utils/get-user-permissions'
 
+type Member = {
+  user: {
+    id: string
+    name: string | null
+    email: string
+    avatarUrl: string | null
+  }
+  id: string
+  role: string
+}
+
 export async function getMembers(app: FastifyInstance) {
   app
     .withTypeProvider<ZodTypeProvider>()
@@ -74,7 +85,7 @@ export async function getMembers(app: FastifyInstance) {
         })
 
         const membersWithRoles = members.map(
-          ({ user: { id: userId, ...user }, ...member }) => {
+          ({ user: { id: userId, ...user }, ...member }: Member) => {
             return {
               ...user,
               ...member,
